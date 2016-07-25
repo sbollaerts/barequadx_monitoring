@@ -59,12 +59,6 @@ try:
                     compute_rate(input_min[i], input_max[i], input_value[i]),
                     output_min[i], output_max[i],
                     compute_rate(output_min[i], output_max[i], input_value[i])), end=" || ")
-                # print("CH%d [%d<%d<%d] %3d%% - (%d<%d<%d) %3d%%" % (
-                #     i,
-                #     input_min[i], input_value[i], input_max[i],
-                #     compute_rate(input_min[i], input_max[i], input_value[i]),
-                #     output_min[i], output_neutral[i], output_max[i],
-                #     compute_rate(output_min[i], output_max[i], input_value[i])), end=" || ")
             print("")
 except KeyboardInterrupt:
     receiver = None
