@@ -32,6 +32,12 @@ print("***    - Determine the min, max, neutral values                        **
 print("***    - Display the current value and compare it to the neutral value ***")
 print("**************************************************************************")
 
+print(">>> Center all sticks...")
+print(">>> During calibration, move sticks in all positions")
+print(">>> Press on [Ctrl]+[C] when finished")
+print("")
+input("[ ...Press any key when ready... ]")
+
 # Instantiate the receiver object
 receiver = Receiver(port=RX_PORT, speed=RX_SPEED, debug=False)
 
@@ -69,3 +75,14 @@ try:
             print("")
 except KeyboardInterrupt:  # Catch the [CTRL]+[C] in REPL
     receiver = None
+
+# force throttle range
+output_min[0] = input_min[0]
+output_max[0] = input_max[0]
+
+print("Writing data to configuration.cfg")
+file = open("configuration.cfg", "w")
+for i in range(0, 4):
+    file.write("CHANNEL_%s_MIN=%s\n" % (i, output_min[i]))
+    file.write("CHANNEL_%s_MAX=%s\n" % (i, output_max[i]))
+file.close()
