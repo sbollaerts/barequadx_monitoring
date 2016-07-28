@@ -122,4 +122,4 @@ class Receiver:
         for i in range(0, 4):
             print("CH%2d: %4d" % (i, self._channels[i]),
                   end=" || ")
-        print("")
+            print("")
